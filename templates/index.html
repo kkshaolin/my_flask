@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+        }
+        /* Top Bar */
         .navbar {
             background-color: #333;
             color: white;
@@ -17,33 +27,72 @@
             align-items: center;
             z-index: 1000;
         }
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
         .navbar a {
             color: white;
             text-decoration: none;
             padding: 8px 16px;
+            margin-left: 10px;
+            transition: 0.3s;
         }
         .navbar a:hover {
             background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
         }
         .content {
             margin-top: 80px;
             padding: 20px;
+            text-align: center;
+        }
+        .login-box {
+            margin-top: 30px;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .login-box h2 {
+            margin-bottom: 15px;
+        }
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-box button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
         <div class="navbar">
-            <div class="logo">🐍 Python Course</div>
+            <div class="logo">🐍 Easy Code</div>
             <div>
                 <a href="#">หน้าแรก</a>
                 <a href="#">บทเรียน</a>    
-                <a href="#">เข้าสู่ระบบ</a>
                 <a href="#">สมัครสมาชิก</a>
             </div>
         </div>
         <div class="content">
-            <h1>ยินดีต้อนรับสู่คอร์สเรียน Python</h1>
-            <p>เรียนรู้ Python ตั้งแต่พื้นฐานถึงขั้นสูง</p>
+            <h1>ยินดีต้อนรับสู่ Easy Code</h1>
+            <p>การเรียนรู้ภาษา Python ในระดับพื้นฐาน</p>
             <div class="login-box">
                 <h2>เข้าสู่ระบบ</h2>
                 <input type="text" placeholder="อีเมล">
