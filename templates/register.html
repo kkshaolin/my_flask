@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครสมาชิก & ล็อกอิน</title>
+    <style>
+        /* ตั้งค่าสไตล์พื้นฐานให้กับหน้าเว็บ */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* สไตล์ของกล่องฟอร์ม */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            margin: 50px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* ปรับสไตล์ของ input field */
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* ปรับสไตล์ของปุ่ม */
+        button {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        /* ปรับสไตล์ของลิงก์ */
+        .switch {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- กล่องสำหรับฟอร์มล็อกอิน -->
+    <div class="container" id="loginForm">
+        <h2>ล็อกอิน</h2>
+        <form>
+            <!-- ช่องใส่ชื่อผู้ใช้ -->
+            <input type="text" placeholder="ชื่อผู้ใช้" required>
+
+            <!-- ช่องใส่รหัสผ่าน -->
+            <input type="password" placeholder="รหัสผ่าน" required>
+
+            <!-- ปุ่มกดเข้าสู่ระบบ -->
+            <button type="submit">เข้าสู่ระบบ</button>
+        </form>
+
+        <!-- ลิงก์เปลี่ยนไปหน้าสมัครสมาชิก -->
+        <p class="switch">ยังไม่มีบัญชี? <a href="#" onclick="showRegister()">สมัครสมาชิก</a></p>
+    </div>
+
+    <!-- กล่องสำหรับฟอร์มสมัครสมาชิก -->
+    <div class="container" id="registerForm" style="display: none;">
+        <h2>สมัครสมาชิก</h2>
+        <form>
+            <!-- ช่องใส่ชื่อผู้ใช้ -->
+            <input type="text" placeholder="ชื่อผู้ใช้" required>
+
+            <!-- ช่องใส่อีเมล -->
+            <input type="email" placeholder="อีเมล" required>
+
+            <!-- ช่องใส่รหัสผ่าน -->
+            <input type="password" placeholder="รหัสผ่าน" required>
+
+            <!-- ปุ่มกดสมัครสมาชิก -->
+            <button type="submit">สมัครสมาชิก</button>
+        </form>
+
+        <!-- ลิงก์เปลี่ยนไปหน้าล็อกอิน -->
+        <p class="switch">มีบัญชีอยู่แล้ว? <a href="#" onclick="showLogin()">เข้าสู่ระบบ</a></p>
+    </div>
+
+    <script>
+        // ฟังก์ชันสำหรับแสดงฟอร์มสมัครสมาชิก
+        function showRegister() {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("registerForm").style.display = "block";
+        }
+
+        // ฟังก์ชันสำหรับแสดงฟอร์มล็อกอิน
+        function showLogin() {
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("registerForm").style.display = "none";
+        }
+    </script>
+</body>
+</html>
