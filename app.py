@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -21,11 +21,8 @@ def dashboard():
 
 @app.route("/python1")
 def python1():
-    return render_template("python1.html")
+    return render_template("learn/python1.html")
 
-@app.route("/ex-python1")
-def ex_python1():
-    return render_template("ex-python1.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
