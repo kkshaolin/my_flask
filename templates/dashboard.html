@@ -6,6 +6,12 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="topbar_home"></div>
+    <script>
+        fetch("top_bar.html")
+            .then(response => response.text())
+            .then(data => {document.getElementById("topbar_home").innerHTML = data;});
+    </script>
     start <br>
     python1 <br>
     python2 <br>
