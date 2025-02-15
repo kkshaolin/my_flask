@@ -6,16 +6,12 @@
     <title>Home</title>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <a href="home.html">Easy Python</a>
-        </div>
-        <div class="menu">
-            <a href="dashboard.html">dashboard</a>
-            <a href="login.html">login</a>
-            <a href="register.html">signup</a>
-        </div>
-    </nav>
+    <div id="topbar_home"></div>
+    <script>
+        fetch("top_bar.html")
+            .then(response => response.text())
+            .then(data => {document.getElementById("topbar_home").innerHTML = data})
+    </script>
     <h1>ยินดีต้อนรับสู่โลกของ Python</h1>
     <p>ภาษาที่นักพัฒนา นักวิทยาศาสตร์ข้อมูล และวิศวกร AI ทั่วโลกเลือกใช้!
         ไม่ว่าคุณจะเป็นมือใหม่ที่อยากเริ่มต้นเขียนโค้ด 
