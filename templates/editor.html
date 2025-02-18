@@ -1,38 +1,77 @@
-<!-- Editor -->
-<div class="editor">
-    <textarea id="codeEditor"></textarea>
-    <br>
-    <button id="runButton">Run Code</button>
-    <h2>Output:</h2>
-    <pre id="output"></pre> 
+<!-- Editor 1 -->
+<div>
+  <h2>Editor 1</h2>
+  <textarea id="codeEditor1" rows="5" cols="50">
+print("Hello from Editor 1!")
+</textarea>
+  <br>
+  <button id="runButton1" disabled>Run Code</button>
+  <h3>Output 1:</h3>
+  <pre id="output1"></pre>
 </div>
 
-<!-- โหลด Pyodide -->
+<hr>
+
+<!-- Editor 2 -->
+<div>
+  <h2>Editor 2</h2>
+  <textarea id="codeEditor2" rows="5" cols="50">
+print("Hello from Editor 2!")
+</textarea>
+  <br>
+  <button id="runButton2" disabled>Run Code</button>
+  <h3>Output 2:</h3>
+  <pre id="output2"></pre>
+</div>
+
+<!-- โหลด Pyodide (โหลดครั้งเดียว) -->
 <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", async function () {
-        console.log("Loading Pyodide...");
-        window.pyodide = await loadPyodide();
-        console.log("Pyodide Loaded");
+  let pyodide;
 
-        document.getElementById("runButton").addEventListener("click", async function () {
-            const code = document.getElementById("codeEditor").value;
-            console.log("Running Python code:", code);
-            try {
-                const output = await pyodide.runPythonAsync(`
-                    import sys
-                    from io import StringIO
-                    sys.stdout = StringIO()
-                    ${code}
-                    sys.stdout.getvalue()
-                `);
-                console.log("Python Output:", output);
-                document.getElementById("output").textContent = output;
-            } catch (err) {
-                console.error("Error:", err);
-                document.getElementById("output").textContent = "Error: " + err.message;
-            }
-        });
+  // โหลด Pyodide ครั้งเดียวตอนเริ่มต้น
+  async function loadPyodideOnce() {
+    console.log("Loading Pyodide...");
+    pyodide = await loadPyodide();         // โหลด Pyodide
+    console.log("Pyodide Loaded");
+    // เมื่อโหลดเสร็จแล้ว ให้ปุ่มทั้งสองอันกดได้
+    document.getElementById("runButton1").disabled = false;
+    document.getElementById("runButton2").disabled = false;
+  }
+
+  // ฟังก์ชันรัน Python Code โดยระบุ textarea และ output คนละชุด
+  async function runPythonCode(editorId, outputId) {
+    const code = document.getElementById(editorId).value;
+    console.log("Running Python code from editor:", editorId, "\nCode:\n", code);
+
+    try {
+      const output = await pyodide.runPythonAsync(`
+        import sys
+        from io import StringIO
+        sys.stdout = StringIO()
+        ${code}
+        sys.stdout.getvalue()
+      `);
+      console.log("Python Output from editor:", editorId, "\n", output);
+      document.getElementById(outputId).textContent = output;
+    } catch (err) {
+      console.error("Error:", err);
+      document.getElementById(outputId).textContent = "Error: " + err.message;
+    }
+  }
+
+  // เมื่อโหลดหน้าเว็บเสร็จ ให้เรียกโหลด Pyodide
+  document.addEventListener("DOMContentLoaded", () => {
+    loadPyodideOnce();
+
+    // ตั้ง Event Listener ให้ปุ่มแต่ละอัน
+    document.getElementById("runButton1").addEventListener("click", () => {
+      runPythonCode("codeEditor1", "output1");
     });
+    document.getElementById("runButton2").addEventListener("click", () => {
+      runPythonCode("codeEditor2", "output2");
+    });
+  });
 </script>
+
