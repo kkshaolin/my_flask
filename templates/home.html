@@ -8,12 +8,15 @@
 <body>
     {% include 'topbar.html' %}
     <h1>ยินดีต้อนรับสู่โลกของ Python</h1>
+
     <h2>Python คืออะไร?</h2>
-    <p>Python เป็นภาษาโปรแกรมมิงที่ได้รับความนิยมอย่างมาก มีรูปแบบโค้ดที่อ่านง่าย เรียนรู้ได้ไม่ยาก 
+    <p>
+        Python เป็นภาษาโปรแกรมมิงที่ได้รับความนิยมอย่างมาก มีรูปแบบโค้ดที่อ่านง่าย เรียนรู้ได้ไม่ยาก 
         และมีความสามารถหลากหลาย ไม่ว่าจะเป็นงานเว็บ, การวิเคราะห์ข้อมูล, AI, หรือแม้แต่การเขียนโปรแกรมทั่วไป
     </p>
-     <h2> ทำไมควรเรียน Python?</h2>
-     <ul>
+
+    <h2>ทำไมควรเรียน Python?</h2>
+    <ul>
         <li>ง่ายต่อการเรียนรู้และเข้าใจ</li>
         <li>มีชุมชนผู้ใช้และผู้พัฒนาขนาดใหญ่</li>
         <li>มีไลบรารีและเครื่องมือมากมาย</li>
@@ -22,36 +25,52 @@
     </ul>
 
     <h2>การติดตั้ง Python</h2>
+
     <h3>สำหรับ Windows</h3>
     <ol>
-        <li>ไปที่เว็บไซต์ [python.org](<a href="https://www.python.org/downloads/">https://www.python.org/downloads/)</a>)</li>
-        <li> ดาวน์โหลด Python เวอร์ชันล่าสุด</li>
-        <li> เปิดไฟล์ติดตั้งและกดที่ "Add Python to PATH"</li>
-        <li> กด "Install Now"</li>
+        <li>ไปที่เว็บไซต์ <a href="https://www.python.org/downloads/">python.org</a></li>
+        <li>ดาวน์โหลด Python เวอร์ชันล่าสุด</li>
+        <li>เปิดไฟล์ติดตั้งและกดที่ "Add Python to PATH"</li>
+        <li>กด "Install Now"</li>
     </ol>
+
     <h3>สำหรับ macOS</h3>
     <ol>
-        <li>ไปที่เว็บไซต์ [python.org](<a href="https://www.python.org/downloads/)">https://www.python.org/downloads/)</a></li>
+        <li>ไปที่เว็บไซต์ <a href="https://www.python.org/downloads/">python.org</a></li>
         <li>ดาวน์โหลด Python เวอร์ชันล่าสุด</li>
-        <li> เปิดไฟล์ติดตั้งและทำตามขั้นตอน</li>
+        <li>เปิดไฟล์ติดตั้งและทำตามขั้นตอน</li>
     </ol>
+
     <h3>สำหรับ Linux</h3>
     <ol>
-        <li>...</li>
+        <li>เปิด Terminal</li>
+        <li>อัปเดต package list โดยใช้คำสั่ง:
+            <pre><code>sudo apt update</code></pre>
+        </li>
+        <li>ติดตั้ง Python โดยใช้คำสั่ง:
+            <pre><code>sudo apt install python3</code></pre>
+        </li>
+        <li>ตรวจสอบการติดตั้งโดยใช้คำสั่ง:
+            <pre><code>python3 --version</code></pre>
+        </li>
     </ol>
+
     <h3>การตรวจสอบการติดตั้ง</h3>
-    <ul>
-        <p>เปิด Terminal หรือ Command Prompt แล้วพิมพ์
-            python --version หรือ python3 --version
-        </p>
-    </ul>
+    <p>
+        เปิด Terminal หรือ Command Prompt แล้วพิมพ์:
+        <pre><code>python --version</code></pre>
+        หรือ
+        <pre><code>python3 --version</code></pre>
+    </p>
+
     <h2>สภาพแวดล้อมสำหรับการพัฒนา (IDE)</h2>
     <ul>
-        <li>PyCharm: IDE ที่มีความสามารถสูง</li>
-        <li>Visual Studio Code: Editor ที่เบาและมีประสิทธิภาพ</li>
-        <li>Jupyter Notebook: เหมาะสำหรับการวิเคราะห์ข้อมูลและการเรียนรู้</li>
-        <li>IDLE: มาพร้อมกับ Python ไม่ต้องติดตั้งเพิ่ม</li>
+        <li><strong>PyCharm</strong>: IDE ที่มีความสามารถสูง เหมาะสำหรับนักพัฒนามืออาชีพ</li>
+        <li><strong>Visual Studio Code</strong>: Editor ที่เบาและมีประสิทธิภาพ พร้อมปลั๊กอินมากมาย</li>
+        <li><strong>Jupyter Notebook</strong>: เหมาะสำหรับการวิเคราะห์ข้อมูลและการเรียนรู้</li>
+        <li><strong>IDLE</strong>: มาพร้อมกับ Python ไม่ต้องติดตั้งเพิ่ม</li>
     </ul>
+
     <p>
         อย่าปล่อยให้ Python เป็นเพียงแค่ชื่อที่คุณเคยได้ยิน! 
         มาร่วมเรียนรู้กับเราวันนี้ แล้วค้นพบว่าการเขียนโปรแกรมสามารถเปลี่ยนอนาคตของคุณได้ 
