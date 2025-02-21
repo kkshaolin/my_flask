@@ -7,5 +7,47 @@
 </head>
 <body>
     {% include 'topbar.html' %}
+    <h1>การจัดการข้อผิดพลาดและการทำงานกับไฟล์</h1>
+
+    <h2>การจัดการข้อผิดพลาด (Exception Handling)</h2>
+
+    <pre><code>
+# โครงสร้างพื้นฐาน
+try:
+    # โค้ดที่อาจเกิดข้อผิดพลาด
+    result = 10 / 0
+except ZeroDivisionError:
+    # ทำงานเมื่อเกิด ZeroDivisionError
+    print("Error: Division by zero")
+except (TypeError, ValueError) as e:
+    # จัดการหลาย exception พร้อมกัน
+    print(f"Error: {e}")
+else:
+    # ทำงานเมื่อไม่มีข้อผิดพลาดใน try
+    print("Operation successful")
+finally:
+    # ทำงานเสมอไม่ว่าจะมีข้อผิดพลาดหรือไม่
+    print("This always executes")
+    </code></pre>
+
+    <h3>ตัวอย่างการจัดการข้อผิดพลาด:</h3>
+
+    <pre><code>
+try:
+    number = int(input("Enter a number: "))
+    result = 100 / number
+    print(f"Result: {result}")
+except ValueError:
+    print("Error: Please enter a valid number")
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero")
+except Exception as e:
+    print(f"Unexpected error: {e}")
+else:
+    print("Calculation completed successfully")
+finally:
+    print("End of calculation")
+    </code></pre>
+
 </body>
 </html>
