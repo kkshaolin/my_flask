@@ -7,7 +7,52 @@
 </head>
 <body>
     {% include 'topbar.html' %}
-    
-    
+    <h1>ฟังก์ชัน (Functions)</h1>
+    <h2>การสร้างฟังก์ชัน</h2>
+    <p>
+        ```python
+def function_name(parameters):
+    """Docstring - คำอธิบายว่าฟังก์ชันนี้ทำอะไร"""
+    # โค้ดภายในฟังก์ชัน
+    return result  # คืนค่า (ถ้ามี)
+```
+    </p>
+    <p>
+        ตัวอย่าง:
+```python
+def greet(name):
+    """ฟังก์ชันทักทาย"""
+    return f"Hello, {name}!"
+    </p>
+    <h2>เรียกใช้ฟังก์ชัน</h2>
+    <p>
+        message = greet("John")
+print(message)  # "Hello, John!"
+    </p>
+    <h2>พารามิเตอร์และการ Return</h2>
+    <p>```python
+        # ฟังก์ชันที่มีพารามิเตอร์หลายตัว
+        def add(a, b):
+            return a + b
+        
+        # ฟังก์ชันที่ไม่ return อะไร
+        def print_info(name, age):
+            print(f"Name: {name}, Age: {age}")
+        
+        # ฟังก์ชันที่ return หลายค่า
+        def get_person_details():
+            name = "John"
+            age = 25
+            job = "Developer"
+            return name, age, job  # Return เป็น tuple
+        
+        # การเรียกใช้
+        result = add(3, 5)
+        print(result)  # 8
+        
+        print_info("Alice", 30)  # Name: Alice, Age: 30
+        
+        name, age, job = get_person_details()
+        print(f"{name} is a {age}-year-old {job}")</p>
 </body>
 </html>
