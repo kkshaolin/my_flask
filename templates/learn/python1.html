@@ -7,85 +7,123 @@
 </head>
 <body>
     {% include 'topbar.html' %}
-    <h1>ตัวแปรและชนิดของข้อมูล</h1>
-    <h2> ตัวแปรใน Python</h2>
-    <p>คือสิ่งที่ใช้เก็บค่าของข้อมูลชนิดต่างๆ นั่นเพราะเวลาที่เรามีข้อมูลก็จำเป็นต้องมีที่จัดเก็บข้อมูล 
-        ซึ่งที่จัดเก็บข้อมูลนั้นก็คือตัวแปรนั่นเอง
-        ถ้าให้เปรียบเทียบก็อาจเทียบว่าตัวแปรหนึ่งตัวคือกล่องที่เก็บข้อมูลไว้ <br>
-        การประกาศตัวแปร
-        name = "John"
-        age = 25
-        is_student = True
-    </p>
+    <h1>ตัวแปรและประเภทข้อมูลพื้นฐาน</h1>
 
-    <h2>ชนิดของข้อมูล</h2>
-    <p>ในตารางเป็นแค่ส่วนหนึ่งไม่ใช้ทั้งหมด</p>
-    <table>
-        <thead>
-            <tr>
-                <th>ชนิด</th>
-                <th>ตัวย่อใน python</th>
-                <th>ตัวอย่าง</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>จำนวนเต็ม</td>
-                <td>int</td>
-                <td>123</td>
-            </tr>
-            <tr>
-                <td>จำนวนทศนิยม</td>
-                <td>float</td>
-                <td>12.3</td>
-            </tr>
-            <tr>
-                <td>ค่าความจริง</td>
-                <td>bool</td>
-                <td>False</td>
-            </tr>
-            <tr>
-                <td>ข้อความ</td>
-                <td>str</td>
-                <td>"Hello World"</td>
-            </tr>
-            <tr>
-                <td>ลิสต์</td>
-                <td>list</td>
-                <td>[1, 2, 3]</td>
-            </tr>
-            <tr>
-                <td>ทูเพิล</td>
-                <td>tuple</td>
-                <td>(1, 2, 3)</td>
-            </tr>
-            <tr>
-                <td>เซต</td>
-                <td>set</td>
-                <td>{1, 2, 3}</td>
-            </tr>
-            <tr>
-                <td>พจนานุกรม</td>
-                <td>dict</td>
-                <td>{"name": "A", "age": 25}</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>การตรวจสอบประเภทข้อมูล</h3>
-    <p>```python
-        x = 5
-        print(type(x))  # <class 'int'>
-        
-        name = "John"
-        print(type(name))  # <class 'str'>
-        ```</p>
-    <h3>การแปลงประเภทข้อมูล</h3>
-    <p>```python
-        # แปลงเป็น int
-        x = int(3.14)    # x = 3
-        a = float(5)     # a = 5.0
-        s = str(10)      # s = "10"</p>
-    {% include 'editor.html' %}
+    <h2>ตัวแปรใน Python</h2>
+    <p>ตัวแปรใน Python สามารถประกาศได้โดยไม่ต้องระบุชนิดข้อมูล:</p>
+    <pre><code>
+# การประกาศตัวแปร
+name = "John"
+age = 25
+is_student = True
+    </code></pre>
+
+    <h2>ประเภทข้อมูลพื้นฐาน</h2>
+
+    <h3>1. ตัวเลข (Numbers)</h3>
+    <ul>
+        <li><code>int</code>: จำนวนเต็ม เช่น 1, 100, -10</li>
+        <li><code>float</code>: จำนวนทศนิยม เช่น 3.14, -0.5</li>
+        <li><code>complex</code>: จำนวนเชิงซ้อน เช่น 1+2j</li>
+    </ul>
+    <pre><code>
+x = 5          # int
+y = 3.14       # float
+z = 2 + 3j     # complex
+    </code></pre>
+
+    <h3>2. สตริง (String)</h3>
+    <pre><code>
+name = "Python Tutorial"
+char = 'A'
+multiline = """This is a
+multiline string"""
+    </code></pre>
+
+    <h4>การเชื่อมสตริง:</h4>
+    <pre><code>
+first_name = "John"
+last_name = "Doe"
+full_name = first_name + " " + last_name  # "John Doe"
+    </code></pre>
+
+    <h4>การทำ String Formatting:</h4>
+    <pre><code>
+name = "John"
+age = 25
+message = f"{name} is {age} years old"
+    </code></pre>
+
+    <h3>3. บูลีน (Boolean)</h3>
+    <pre><code>
+is_true = True
+is_false = False
+    </code></pre>
+
+    <h3>4. ลิสต์ (List)</h3>
+    <pre><code>
+fruits = ["apple", "banana", "cherry"]
+numbers = [1, 2, 3, 4, 5]
+mixed = [1, "hello", True, 3.14]
+    </code></pre>
+
+    <h4>การเข้าถึงสมาชิกในลิสต์:</h4>
+    <pre><code>
+fruits = ["apple", "banana", "cherry"]
+print(fruits[0])  # "apple"
+print(fruits[1])  # "banana"
+    </code></pre>
+
+    <h3>5. ทูเพิล (Tuple)</h3>
+    <pre><code>
+coordinates = (10, 20)
+colors = ("red", "green", "blue")
+    </code></pre>
+
+    <h3>6. ดิกชันนารี (Dictionary)</h3>
+    <pre><code>
+person = {
+    "name": "John",
+    "age": 25,
+    "is_student": True
+}
+    </code></pre>
+
+    <h4>การเข้าถึงข้อมูลใน dictionary:</h4>
+    <pre><code>
+person = {"name": "John", "age": 25}
+print(person["name"])  # "John"
+print(person["age"])   # 25
+    </code></pre>
+
+    <h3>7. เซต (Set)</h3>
+    <pre><code>
+fruits = {"apple", "banana", "cherry"}
+    </code></pre>
+
+    <h2>การตรวจสอบประเภทข้อมูล</h2>
+    <pre><code>
+x = 5
+print(type(x))  # <class 'int'>
+
+name = "John"
+print(type(name))  # <class 'str'>
+    </code></pre>
+
+    <h2>การแปลงประเภทข้อมูล</h2>
+    <pre><code>
+# แปลงเป็น int
+x = int(3.14)    # x = 3
+y = int("10")    # y = 10
+
+# แปลงเป็น float
+a = float(5)     # a = 5.0
+b = float("3.14")  # b = 3.14
+
+# แปลงเป็น string
+s = str(10)      # s = "10"
+t = str(3.14)    # t = "3.14"
+    </code></pre>
     <a href="/python2">ไปต่อยังบทเรียนต่อไป</a>
 </body>
 </html>

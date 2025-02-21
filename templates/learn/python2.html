@@ -8,40 +8,49 @@
 <body>
     {% include 'topbar.html' %}
     <h1>โครงสร้างควบคุม</h1>
+
     <h2>เงื่อนไข if-else</h2>
-    <p>โครงสร้างพื้นฐาน
-        if condition:
-            # ทำอะไรบางอย่าง
-        elif another_condition:
-            # ทำอย่างอื่น
-        else:
-            # ทำเมื่อไม่ตรงเงื่อนไขใดๆ</p>
-    <p>ตัวอย่าง:
-        ```python
-        age = 18
-        
-        if age < 13:
-            print("เด็ก")
-        elif age < 18:
-            print("วัยรุ่น")
-        else:
-            print("ผู้ใหญ่")
-        ```</p>
+
+    <p>โครงสร้างพื้นฐาน:</p>
+    <pre><code>
+if condition:
+    # ทำอะไรบางอย่าง
+elif another_condition:
+    # ทำอย่างอื่น
+else:
+    # ทำเมื่อไม่ตรงเงื่อนไขใดๆ
+    </code></pre>
+
+    <h3>ตัวอย่าง:</h3>
+    <pre><code>
+age = 18
+
+if age < 13:
+    print("เด็ก")
+elif age < 18:
+    print("วัยรุ่น")
+else:
+    print("ผู้ใหญ่")
+    </code></pre>
+
     <h3>การเปรียบเทียบ</h3>
-    <p>
-        - `==`: เท่ากับ
-        - `!=`: ไม่เท่ากับ
-        - `>`: มากกว่า
-        - `<`: น้อยกว่า
-        - `>=`: มากกว่าหรือเท่ากับ
-        - `<=`: น้อยกว่าหรือเท่ากับ
-    </p>
+    <ul>
+        <li><code>==</code>: เท่ากับ</li>
+        <li><code>!=</code>: ไม่เท่ากับ</li>
+        <li><code>&gt;</code>: มากกว่า</li>
+        <li><code>&lt;</code>: น้อยกว่า</li>
+        <li><code>&gt;=</code>: มากกว่าหรือเท่ากับ</li>
+        <li><code>&lt;=</code>: น้อยกว่าหรือเท่ากับ</li>
+    </ul>
+
     <h3>ตัวดำเนินการทางตรรกะ</h3>
-    <p>- `and`: และ
-        - `or`: หรือ
-        - `not`: ไม่</p>
-    <p>
-        ```python
+    <ul>
+        <li><code>and</code>: และ</li>
+        <li><code>or</code>: หรือ</li>
+        <li><code>not</code>: ไม่</li>
+    </ul>
+
+    <pre><code>
 x = 5
 y = 10
 
@@ -53,44 +62,45 @@ if x > 0 or y > 0:
 
 if not x < 0:
     print("x ไม่น้อยกว่า 0")
-    </p>
-    <h2> ลูป (Loops)</h2>
+    </code></pre>
+
+    <h2>ลูป (Loops)</h2>
+
     <h3>for loop</h3>
-    <p>```python
-        # วนลูปจาก 0-4
-        for i in range(5):
-            print(i)
-        </p>
-        <p>
-            # วนลูปผ่านสมาชิกของลิสต์
+    <pre><code>
+# วนลูปจาก 0-4
+for i in range(5):
+    print(i)
+
+# วนลูปผ่านสมาชิกของลิสต์
 fruits = ["apple", "banana", "cherry"]
 for fruit in fruits:
     print(fruit)
-        </p>
-        <p>
-            loop ผ่าน dictionary
+
+# loop ผ่าน dictionary
 person = {"name": "John", "age": 25, "job": "Developer"}
 for key, value in person.items():
     print(f"{key}: {value}")
-        </p>
-        <h3>while loop</h3>
-        <p>
-            ```python
+    </code></pre>
+
+    <h3>while loop</h3>
+    <pre><code>
 # วนลูปจนกว่าเงื่อนไขจะเป็นเท็จ
 count = 0
 while count < 5:
     print(count)
     count += 1
-```
-        </p>
-        <h3>การควบคุมลูป</h3>
-        <p>
-            - `break`: ออกจากลูปทันที
-            - `continue`: ข้ามการทำงานที่เหลือในรอบนี้และเริ่มรอบถัดไป
-            - `pass`: ไม่ทำอะไร (placeholder)
-            </p>
-            <p>
-                # ตัวอย่างการใช้ break
+    </code></pre>
+
+    <h3>การควบคุมลูป</h3>
+    <ul>
+        <li><code>break</code>: ออกจากลูปทันที</li>
+        <li><code>continue</code>: ข้ามการทำงานที่เหลือในรอบนี้และเริ่มรอบถัดไป</li>
+        <li><code>pass</code>: ไม่ทำอะไร (placeholder)</li>
+    </ul>
+
+    <pre><code>
+# ตัวอย่างการใช้ break
 for i in range(10):
     if i == 5:
         break
@@ -107,12 +117,11 @@ for i in range(5):
     if i == 2:
         pass  # ไม่ทำอะไรเป็นพิเศษ
     print(i)  # จะพิมพ์ 0, 1, 2, 3, 4
-            </p>
-            <h3>List Comprehension</h3>
-            <p>
-                เป็นวิธีการสร้างลิสต์ใหม่จากลิสต์ที่มีอยู่อย่างกระชับ:
+    </code></pre>
 
-```python
+    <h3>List Comprehension</h3>
+    <p>เป็นวิธีการสร้างลิสต์ใหม่จากลิสต์ที่มีอยู่อย่างกระชับ:</p>
+    <pre><code>
 # สร้างลิสต์จากเลข 0-9
 numbers = [x for x in range(10)]
 
@@ -121,6 +130,7 @@ even_numbers = [x for x in range(10) if x % 2 == 0]
 
 # สร้างลิสต์ของกำลังสอง
 squares = [x**2 for x in range(10)]
-            </p>
+    </code></pre>
+    <a href="/python3">ไปต่อยังบทเรียนต่อไป</a>
 </body>
 </html>

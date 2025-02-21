@@ -8,68 +8,76 @@
 <body>
     {% include 'topbar.html' %}
     <h1>ฟังก์ชัน (Functions)</h1>
+
     <h2>การสร้างฟังก์ชัน</h2>
-    <p>
-        ```python
+
+    <pre><code>
 def function_name(parameters):
     """Docstring - คำอธิบายว่าฟังก์ชันนี้ทำอะไร"""
     # โค้ดภายในฟังก์ชัน
     return result  # คืนค่า (ถ้ามี)
-```
-    </p>
-    <p>
-        ตัวอย่าง:
-```python
+    </code></pre>
+
+    <h3>ตัวอย่าง:</h3>
+    <pre><code>
 def greet(name):
     """ฟังก์ชันทักทาย"""
     return f"Hello, {name}!"
-    </p>
+    </code></pre>
+
     <h2>เรียกใช้ฟังก์ชัน</h2>
-    <p>
-        message = greet("John")
+
+    <pre><code>
+message = greet("John")
 print(message)  # "Hello, John!"
-    </p>
+    </code></pre>
+
     <h2>พารามิเตอร์และการ Return</h2>
-    <p>```python
-        # ฟังก์ชันที่มีพารามิเตอร์หลายตัว
-        def add(a, b):
-            return a + b
-        
-        # ฟังก์ชันที่ไม่ return อะไร
-        def print_info(name, age):
-            print(f"Name: {name}, Age: {age}")
-        
-        # ฟังก์ชันที่ return หลายค่า
-        def get_person_details():
-            name = "John"
-            age = 25
-            job = "Developer"
-            return name, age, job  # Return เป็น tuple
-        
-        # การเรียกใช้
-        result = add(3, 5)
-        print(result)  # 8
-        
-        print_info("Alice", 30)  # Name: Alice, Age: 30
-        
-        name, age, job = get_person_details()
-        print(f"{name} is a {age}-year-old {job}")</p>
-        <h2>Default Parameters และ Named Arguments</h2>
-        <p>```python
-            # พารามิเตอร์ที่มีค่าเริ่มต้น
-            def greet(name, greeting="Hello"):
-                return f"{greeting}, {name}!"
-            
-            # การเรียกใช้
-            print(greet("John"))  # "Hello, John!"
-            print(greet("John", "Hi"))  # "Hi, John!"
-            
-            # Named arguments
-            print(greet(greeting="Hey", name="Alice"))  # "Hey, Alice!"
-            ```</p>
-            <h3>*args และ **kwargs</h3>
-            <p>
-                ```python
+
+    <pre><code>
+# ฟังก์ชันที่มีพารามิเตอร์หลายตัว
+def add(a, b):
+    return a + b
+
+# ฟังก์ชันที่ไม่ return อะไร
+def print_info(name, age):
+    print(f"Name: {name}, Age: {age}")
+
+# ฟังก์ชันที่ return หลายค่า
+def get_person_details():
+    name = "John"
+    age = 25
+    job = "Developer"
+    return name, age, job  # Return เป็น tuple
+
+# การเรียกใช้
+result = add(3, 5)
+print(result)  # 8
+
+print_info("Alice", 30)  # Name: Alice, Age: 30
+
+name, age, job = get_person_details()
+print(f"{name} is a {age}-year-old {job}")
+    </code></pre>
+
+    <h2>Default Parameters และ Named Arguments</h2>
+
+    <pre><code>
+# พารามิเตอร์ที่มีค่าเริ่มต้น
+def greet(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
+
+# การเรียกใช้
+print(greet("John"))  # "Hello, John!"
+print(greet("John", "Hi"))  # "Hi, John!"
+
+# Named arguments
+print(greet(greeting="Hey", name="Alice"))  # "Hey, Alice!"
+    </code></pre>
+
+    <h3>*args และ **kwargs</h3>
+
+    <pre><code>
 # *args รับพารามิเตอร์ไม่จำกัดจำนวน
 def sum_all(*args):
     return sum(args)
@@ -83,44 +91,49 @@ def print_person_info(**kwargs):
         print(f"{key}: {value}")
 
 print_person_info(name="John", age=25, job="Developer")
-```
-            </p>
+    </code></pre>
+
     <h2>Lambda Functions</h2>
+
     <p>Lambda คือฟังก์ชันแบบสั้นๆ ที่เขียนได้ในบรรทัดเดียว:</p>
-    <p>```python
-        # รูปแบบ: lambda arguments: expression
-        
-        # ฟังก์ชันแบบปกติ
-        def multiply(x, y):
-            return x * y
-        
-        # ฟังก์ชันแบบ lambda ที่ทำงานเหมือนกัน
-        multiply_lambda = lambda x, y: x * y
-        
-        print(multiply(3, 4))       # 12
-        print(multiply_lambda(3, 4))  # 12
-        ```</p>
-        <h2>Scope ของตัวแปร (Variable Scope)</h2>
-        <p>```python
-            # ตัวแปรแบบ global
-            x = 10
-            
-            def my_function():
-                # ตัวแปรแบบ local
-                y = 5
-                print(x)  # สามารถเข้าถึงตัวแปร global ได้
-                print(y)  # เข้าถึงตัวแปร local ได้
-            
-            my_function()
-            print(x)  # ยังคงเข้าถึงตัวแปร global ได้
-            # print(y)  # Error: ไม่สามารถเข้าถึงตัวแปร local นอกฟังก์ชันได้
-            
-            def change_global():
-                global x  # ประกาศว่าจะใช้ตัวแปร global x
-                x = 20    # เปลี่ยนค่าตัวแปร global
-            
-            change_global()
-            print(x)  # 20
-            ```</p>
+
+    <pre><code>
+# รูปแบบ: lambda arguments: expression
+
+# ฟังก์ชันแบบปกติ
+def multiply(x, y):
+    return x * y
+
+# ฟังก์ชันแบบ lambda ที่ทำงานเหมือนกัน
+multiply_lambda = lambda x, y: x * y
+
+print(multiply(3, 4))       # 12
+print(multiply_lambda(3, 4))  # 12
+    </code></pre>
+
+    <h2>Scope ของตัวแปร (Variable Scope)</h2>
+
+    <pre><code>
+# ตัวแปรแบบ global
+x = 10
+
+def my_function():
+    # ตัวแปรแบบ local
+    y = 5
+    print(x)  # สามารถเข้าถึงตัวแปร global ได้
+    print(y)  # เข้าถึงตัวแปร local ได้
+
+my_function()
+print(x)  # ยังคงเข้าถึงตัวแปร global ได้
+# print(y)  # Error: ไม่สามารถเข้าถึงตัวแปร local นอกฟังก์ชันได้
+
+def change_global():
+    global x  # ประกาศว่าจะใช้ตัวแปร global x
+    x = 20    # เปลี่ยนค่าตัวแปร global
+
+change_global()
+print(x)  # 20
+    </code></pre>
+    <a href="/python4">ไปต่อยังบทเรียนต่อไป</a>
 </body>
 </html>
