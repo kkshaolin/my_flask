@@ -54,5 +54,73 @@ print(message)  # "Hello, John!"
         
         name, age, job = get_person_details()
         print(f"{name} is a {age}-year-old {job}")</p>
+        <h2>Default Parameters และ Named Arguments</h2>
+        <p>```python
+            # พารามิเตอร์ที่มีค่าเริ่มต้น
+            def greet(name, greeting="Hello"):
+                return f"{greeting}, {name}!"
+            
+            # การเรียกใช้
+            print(greet("John"))  # "Hello, John!"
+            print(greet("John", "Hi"))  # "Hi, John!"
+            
+            # Named arguments
+            print(greet(greeting="Hey", name="Alice"))  # "Hey, Alice!"
+            ```</p>
+            <h3>*args และ **kwargs</h3>
+            <p>
+                ```python
+# *args รับพารามิเตอร์ไม่จำกัดจำนวน
+def sum_all(*args):
+    return sum(args)
+
+print(sum_all(1, 2, 3))  # 6
+print(sum_all(1, 2, 3, 4, 5))  # 15
+
+# **kwargs รับพารามิเตอร์แบบ key-value ไม่จำกัดจำนวน
+def print_person_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_person_info(name="John", age=25, job="Developer")
+```
+            </p>
+    <h2>Lambda Functions</h2>
+    <p>Lambda คือฟังก์ชันแบบสั้นๆ ที่เขียนได้ในบรรทัดเดียว:</p>
+    <p>```python
+        # รูปแบบ: lambda arguments: expression
+        
+        # ฟังก์ชันแบบปกติ
+        def multiply(x, y):
+            return x * y
+        
+        # ฟังก์ชันแบบ lambda ที่ทำงานเหมือนกัน
+        multiply_lambda = lambda x, y: x * y
+        
+        print(multiply(3, 4))       # 12
+        print(multiply_lambda(3, 4))  # 12
+        ```</p>
+        <h2>Scope ของตัวแปร (Variable Scope)</h2>
+        <p>```python
+            # ตัวแปรแบบ global
+            x = 10
+            
+            def my_function():
+                # ตัวแปรแบบ local
+                y = 5
+                print(x)  # สามารถเข้าถึงตัวแปร global ได้
+                print(y)  # เข้าถึงตัวแปร local ได้
+            
+            my_function()
+            print(x)  # ยังคงเข้าถึงตัวแปร global ได้
+            # print(y)  # Error: ไม่สามารถเข้าถึงตัวแปร local นอกฟังก์ชันได้
+            
+            def change_global():
+                global x  # ประกาศว่าจะใช้ตัวแปร global x
+                x = 20    # เปลี่ยนค่าตัวแปร global
+            
+            change_global()
+            print(x)  # 20
+            ```</p>
 </body>
 </html>
