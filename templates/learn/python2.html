@@ -37,5 +37,51 @@
         - `<=`: น้อยกว่าหรือเท่ากับ
     </p>
     <h3>ตัวดำเนินการทางตรรกะ</h3>
+    <p>- `and`: และ
+        - `or`: หรือ
+        - `not`: ไม่</p>
+    <p>
+        ```python
+x = 5
+y = 10
+
+if x > 0 and y > 0:
+    print("ทั้ง x และ y เป็นบวก")
+
+if x > 0 or y > 0:
+    print("x หรือ y อย่างน้อยหนึ่งค่าเป็นบวก")
+
+if not x < 0:
+    print("x ไม่น้อยกว่า 0")
+    </p>
+    <h2> ลูป (Loops)</h2>
+    <h3>for loop</h3>
+    <p>```python
+        # วนลูปจาก 0-4
+        for i in range(5):
+            print(i)
+        </p>
+        <p>
+            # วนลูปผ่านสมาชิกของลิสต์
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+        </p>
+        <p>
+            loop ผ่าน dictionary
+person = {"name": "John", "age": 25, "job": "Developer"}
+for key, value in person.items():
+    print(f"{key}: {value}")
+        </p>
+        <h3>while loop</h3>
+        <p>
+            ```python
+# วนลูปจนกว่าเงื่อนไขจะเป็นเท็จ
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+```
+        </p>
 </body>
 </html>
