@@ -7,5 +7,182 @@
 </head>
 <body>
     {% include 'topbar.html' %}
+    <h1>โมดูลและแพ็คเกจ</h1>
+
+    <h2>การใช้งานโมดูล (Modules)</h2>
+
+    <p>โมดูลคือไฟล์ Python ที่มีฟังก์ชัน, คลาส, และตัวแปรที่คุณสามารถนำมาใช้ในไฟล์อื่นได้</p>
+
+    <h3>การ Import โมดูลมาตรฐาน</h3>
+
+    <pre><code>
+# Import ทั้งโมดูล
+import math
+print(math.sqrt(16))  # 4.0
+
+# Import เฉพาะบางฟังก์ชัน
+from math import sqrt, pi
+print(sqrt(16))  # 4.0
+print(pi)        # 3.141592...
+
+# Import ทั้งหมดและใช้โดยตรง (ไม่แนะนำให้ใช้กับโมดูลขนาดใหญ่)
+from math import *
+print(sqrt(16))   # 4.0
+print(cos(0))     # 1.0
+
+# Import และตั้งชื่อย่อ
+import math as m
+print(m.sqrt(16))  # 4.0
+    </code></pre>
+
+    <h3>โมดูลมาตรฐานที่ใช้บ่อย</h3>
+
+    <h4>1. math: ฟังก์ชันทางคณิตศาสตร์</h4>
+    <pre><code>
+import math
+print(math.sqrt(16))       # รากที่สอง: 4.0
+print(math.factorial(5))   # 5!: 120
+print(math.pi)             # ค่า π: 3.141592...
+    </code></pre>
+
+    <h4>2. random: การสุ่มค่า</h4>
+    <pre><code>
+import random
+print(random.randint(1, 10))            # สุ่มเลข 1-10
+print(random.choice(["A", "B", "C"]))   # สุ่มเลือกจากลิสต์
+    </code></pre>
+
+    <h4>3. datetime: การทำงานกับวันที่และเวลา</h4>
+    <pre><code>
+from datetime import datetime, timedelta
+
+now = datetime.now()
+print(now)                          # เวลาปัจจุบัน
+tomorrow = now + timedelta(days=1)
+print(tomorrow)                     # วันพรุ่งนี้ในเวลาเดียวกัน
+print(now.strftime("%d/%m/%Y"))     # รูปแบบวันที่: "DD/MM/YYYY"
+    </code></pre>
+
+    <h4>4. os: การทำงานกับระบบปฏิบัติการ</h4>
+    <pre><code>
+import os
+print(os.getcwd())              # แสดงไดเรกทอรีปัจจุบัน
+os.mkdir("new_folder")          # สร้างโฟลเดอร์ใหม่
+files = os.listdir(".")         # แสดงรายการไฟล์ในโฟลเดอร์ปัจจุบัน
+    </code></pre>
+
+    <h2>การสร้างโมดูลของตัวเอง</h2>
+
+    <h3>ไฟล์ mymodule.py</h3>
+    <pre><code>
+# mymodule.py
+def greet(name):
+    return f"Hello, {name}!"
+
+def add(a, b):
+    return a + b
+
+PI = 3.14159
+    </code></pre>
+
+    <h3>การใช้งานโมดูลของตัวเอง</h3>
+    <pre><code>
+# main.py
+import mymodule
+
+print(mymodule.greet("John"))  # "Hello, John!"
+print(mymodule.add(3, 5))      # 8
+print(mymodule.PI)             # 3.14159
+    </code></pre>
+
+    <h2>แพ็คเกจ (Packages)</h2>
+
+    <p>แพ็คเกจคือไดเรกทอรีที่มีไฟล์ <code>__init__.py</code> และอาจมีโมดูลหรือแพ็คเกจย่อยอื่นๆ</p>
+
+    <h3>โครงสร้างแพ็คเกจ</h3>
+    <pre>
+mypackage/
+    __init__.py
+    module1.py
+    module2.py
+    subpackage/
+        __init__.py
+        module3.py
+    </pre>
+
+    <h3>การใช้งานแพ็คเกจ</h3>
+    <pre><code>
+# Import โมดูลจากแพ็คเกจ
+import mypackage.module1
+mypackage.module1.some_function()
+
+# Import ฟังก์ชันโดยตรง
+from mypackage.module2 import another_function
+another_function()
+
+# Import จากแพ็คเกจย่อย
+from mypackage.subpackage.module3 import special_function
+special_function()
+    </code></pre>
+
+    <h2>การติดตั้งแพ็คเกจผ่าน pip</h2>
+
+    <p>pip คือ package manager สำหรับ Python ที่ใช้ติดตั้งแพ็คเกจจาก Python Package Index (PyPI)</p>
+
+    <pre><code>
+# ติดตั้งแพ็คเกจ
+pip install package_name
+
+# ติดตั้งแพ็คเกจเวอร์ชันเฉพาะ
+pip install package_name==1.0.0
+
+# อัปเกรดแพ็คเกจ
+pip install --upgrade package_name
+
+# ถอนการติดตั้งแพ็คเกจ
+pip uninstall package_name
+
+# แสดงรายการแพ็คเกจที่ติดตั้ง
+pip list
+    </code></pre>
+
+    <h3>แพ็คเกจยอดนิยม</h3>
+
+    <h4>1. NumPy: การคำนวณทางวิทยาศาสตร์</h4>
+    <pre><code>
+import numpy as np
+arr = np.array([1, 2, 3, 4, 5])
+print(np.mean(arr))  # ค่าเฉลี่ย: 3.0
+    </code></pre>
+
+    <h4>2. Pandas: การวิเคราะห์ข้อมูล</h4>
+    <pre><code>
+import pandas as pd
+df = pd.DataFrame({
+    'Name': ['John', 'Alice', 'Bob'],
+    'Age': [25, 30, 22]
+})
+print(df)
+    </code></pre>
+
+    <h4>3. Matplotlib: การสร้างกราฟ</h4>
+    <pre><code>
+import matplotlib.pyplot as plt
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+plt.plot(x, y)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Simple Plot')
+plt.show()
+    </code></pre>
+
+    <h4>4. Requests: การทำ HTTP requests</h4>
+    <pre><code>
+import requests
+response = requests.get('https://api.example.com/data')
+data = response.json()
+print(data)
+    </code></pre>
 </body>
 </html>
