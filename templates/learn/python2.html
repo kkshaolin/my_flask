@@ -83,5 +83,44 @@ while count < 5:
     count += 1
 ```
         </p>
+        <h3>การควบคุมลูป</h3>
+        <p>
+            - `break`: ออกจากลูปทันที
+            - `continue`: ข้ามการทำงานที่เหลือในรอบนี้และเริ่มรอบถัดไป
+            - `pass`: ไม่ทำอะไร (placeholder)
+            </p>
+            <p>
+                # ตัวอย่างการใช้ break
+for i in range(10):
+    if i == 5:
+        break
+    print(i)  # จะพิมพ์ 0, 1, 2, 3, 4
+
+# ตัวอย่างการใช้ continue
+for i in range(10):
+    if i % 2 == 0:
+        continue
+    print(i)  # จะพิมพ์ 1, 3, 5, 7, 9
+
+# ตัวอย่างการใช้ pass
+for i in range(5):
+    if i == 2:
+        pass  # ไม่ทำอะไรเป็นพิเศษ
+    print(i)  # จะพิมพ์ 0, 1, 2, 3, 4
+            </p>
+            <h3>List Comprehension</h3>
+            <p>
+                เป็นวิธีการสร้างลิสต์ใหม่จากลิสต์ที่มีอยู่อย่างกระชับ:
+
+```python
+# สร้างลิสต์จากเลข 0-9
+numbers = [x for x in range(10)]
+
+# สร้างลิสต์เฉพาะเลขคู่
+even_numbers = [x for x in range(10) if x % 2 == 0]
+
+# สร้างลิสต์ของกำลังสอง
+squares = [x**2 for x in range(10)]
+            </p>
 </body>
 </html>
