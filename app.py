@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+import forms
+from flask_login import login_required, login_user, logout_user
 
 app = Flask(__name__)
 
@@ -6,9 +8,28 @@ app = Flask(__name__)
 def index():
     return render_template('home.html')
 
-@app.route("/register")
+# @app.route("/register")
+# def register():
+#     return render_template("register.html")
+@app.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("register.html")
+    form = forms.RegisterForm()
+    if not form.validate_on_submit():
+        return flask.render_template(
+"register.html",
+form=form,
+)
+    user = models.User() # Initialize the user here
+    form.populate_obj(user) # Populate the user object with form data
+    role = models.Role.query.filter_by(name="user").first()
+    if not role: # Create the 'user' role if it doesn't exist
+        role = models.Role(name="user")
+        models.db.session.add(role)
+    user.roles.append(role)
+    user.password_hash = form.password.data
+    models.db.session.add(user)
+    models.db.session.commit()
+    return flask.redirect(flask.url_for("index"))
 
 @app.route("/login")
 def login():
