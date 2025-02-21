@@ -105,7 +105,53 @@ lines = ["Line 1", "Line 2", "Line 3"]
 with open("output.txt", "w") as file:
     file.writelines([line + "\n" for line in lines])
     </code></pre>
+    <h3>การทำงานกับไฟล์ CSV</h3>
 
+    <pre><code>
+import csv
+
+# การอ่านไฟล์ CSV
+with open("data.csv", "r") as file:
+    csv_reader = csv.reader(file)
+    for row in csv_reader:
+        print(row)  # row เป็น list ของข้อมูลในแต่ละคอลัมน์
+
+# การเขียนไฟล์ CSV
+data = [
+    ["Name", "Age", "City"],
+    ["John", "25", "New York"],
+    ["Alice", "30", "London"],
+    ["Bob", "22", "Paris"]
+]
+
+with open("output.csv", "w", newline="") as file:
+    csv_writer = csv.writer(file)
+    for row in data:
+        csv_writer.writerow(row)
+    </code></pre>
+
+    <h3>การทำงานกับไฟล์ JSON</h3>
+
+    <pre><code>
+import json
+
+# การอ่านไฟล์ JSON
+with open("data.json", "r") as file:
+    data = json.load(file)
+    print(data)
+
+# การเขียนไฟล์ JSON
+person = {
+    "name": "John",
+    "age": 25,
+    "city": "New York",
+    "is_student": False,
+    "hobbies": ["reading", "swimming", "coding"]
+}
+
+with open("person.json", "w") as file:
+    json.dump(person, file, indent=4)  # indent ทำให้ไฟล์อ่านง่ายขึ้น
+    </code></pre>
 
 </body>
 </html>
