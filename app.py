@@ -1,39 +1,48 @@
-from flask import Flask, render_template
+import flask
+import models
 import forms
+# from models import db, User, Tag
 from flask_login import login_required, login_user, logout_user
+from flask import Response, send_file, abort ,render_template
 
-app = Flask(__name__)
+
+app = flask.Flask(__name__)
+app.config["SECRET_KEY"] = "This is secret key"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db" # จะเก็บ data ที่ไหน
+models.init_app(app)
 
 @app.route("/")
 def index():
-    return render_template('home.html')
+    return render_template('index.html')
 
-# @app.route("/register")
-# def register():
-#     return render_template("register.html")
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    form = forms.RegisterForm()
-    if not form.validate_on_submit():
-        return flask.render_template(
-"register.html",
-form=form,
-)
-    user = models.User() # Initialize the user here
-    form.populate_obj(user) # Populate the user object with form data
-    role = models.Role.query.filter_by(name="user").first()
-    if not role: # Create the 'user' role if it doesn't exist
-        role = models.Role(name="user")
-        models.db.session.add(role)
-    user.roles.append(role)
-    user.password_hash = form.password.data
-    models.db.session.add(user)
-    models.db.session.commit()
-    return flask.redirect(flask.url_for("index"))
+    form = forms.RegisterForm() # สร้างฟอร์มสำหรับการลงทะเบียน
+    if not form.validate_on_submit(): # ตรวจสอบฟอร์ม ส่งมาหรือไม่ ข้อมูลในฟอร์มถูกต้องไม่
+        return render_template("register.html",form=form,)
+    user = models.User() #เก็บข้อมูลผู้ใช้ใหม่
+    form.populate_obj(user) # นำข้อมูลจากฟอร์มมาใส่ในอ็อบเจกต์ user
+    user.password_hash = form.password.data  # ตั้งค่ารหัสผ่านให้อ่านยาก
+    models.db.session.add(user) # เพิ่มผู้ใช้ใหม่ลงในฐานข้อมูล
+    models.db.session.commit() # บันทึกการเปลี่ยนแปลงลงในฐานข้อมูล
+    return flask.redirect(flask.url_for("index"))  # เสร็จแล้วไปหน้า index
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
+    form = forms.LoginForm() # สร้าง form
+    if not form.validate_on_submit(): # ตรวจหน้า login
+        return render_template("login.html",form=form,)
+    user = models.User.query.filter_by(username=form.username.data).first() #หา user ในฐานข้อมูล
+    if user and user.authenticate(form.password.data): # ตรวจรหัส
+        login_user(user)
+        return flask.redirect(flask.url_for("index"))
+    return flask.redirect(flask.url_for("login", error="Invalid username or password")) # ถ้าข้อมูลไม่ถูกต้อง
+
+# @app.route("/logout")
+# @login_required
+# def logout():
+#     logout_user()
+#     return flask.redirect(flask.url_for("login"))
 
 @app.route("/dashboard")
 def dashboard():
