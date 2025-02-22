@@ -1,0 +1,130 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f8fafc;
+  padding-top: 80px; /* ให้เนื้อหาไม่ทับกับ fixed topbar */
+}
+
+/* Container */
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Headings */
+h1 {
+  color: #1e293b;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+h2 {
+  color: #334155;
+  font-size: 2rem;
+  margin: 2.5rem 0 1.5rem 0;
+  border-bottom: 2px solid #60a5fa;
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  color: #475569;
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem 0;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1.5rem;
+  color: #475569;
+}
+
+/* Lists */
+ul, ol {
+  margin: 1rem 0 1.5rem 2rem;
+  color: #475569;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Code blocks */
+pre {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+code {
+  font-family: 'Consolas', monospace;
+}
+
+/* Links */
+a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Special link for "start learning" */
+a[href="/dashboard"] {
+  display: inline-block;
+  background-color: #2563eb;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+a[href="/dashboard"]:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Strong tags */
+strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+      padding: 1rem;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  h2 {
+      font-size: 1.75rem;
+  }
+
+  h3 {
+      font-size: 1.25rem;
+  }
+}
