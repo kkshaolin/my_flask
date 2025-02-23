@@ -60,26 +60,32 @@ def dashboard():
     return render_template("dashboard.html")
 
 @app.route("/python1")
+@login_required
 def python1():
     return render_template("learn/python1.html")
 
 @app.route("/python2")
+@login_required
 def python2():
     return render_template("learn/python2.html")
 
 @app.route("/python3")
+@login_required
 def python3():
     return render_template("learn/python3.html")
 
 @app.route("/python4")
+@login_required
 def python4():
     return render_template("learn/python4.html")
 
 @app.route("/python5")
+@login_required
 def python5():
     return render_template("learn/python5.html")
 
 @app.route("/python6")
+@login_required
 def python6():
     return render_template("learn/python6.html")
 

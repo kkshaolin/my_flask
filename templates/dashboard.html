@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     {% include 'topbar.html' %}
-    start <br>
-    <a href="/python1">python1</a><br>
-    <a href="/python2">python2</a><br>
-    <a href="/python3">python3</a><br>
-    <a href="/python4">python4</a><br>
-    <a href="/python5">python5</a><br>
-    <a href="/python6">python6</a>
-    end
+    <div id="start-point">start</div>
+    <div id="roadmap">
+        <a href="/python1">python1</a><br>
+        <a href="/python2">python2</a><br>
+        <a href="/python3">python3</a><br>
+        <a href="/python4">python4</a><br>
+        <a href="/python5">python5</a><br>
+        <a href="/python6">python6</a>
+    </div>
+    <div id="end-point">end</div>
 </body>
 </html>

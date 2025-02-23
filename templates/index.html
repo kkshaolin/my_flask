@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     {% include 'topbar.html' %}
@@ -28,7 +29,7 @@
 
     <h3>สำหรับ Windows</h3>
     <ol>
-        <li>ไปที่เว็บไซต์ <a href="https://www.python.org/downloads/">python.org</a></li>
+        <li>ไปที่เว็บไซต์ <a id="link_python" href="https://www.python.org/downloads/">python.org</a></li>
         <li>ดาวน์โหลด Python เวอร์ชันล่าสุด</li>
         <li>เปิดไฟล์ติดตั้งและกดที่ "Add Python to PATH"</li>
         <li>กด "Install Now"</li>
@@ -36,7 +37,7 @@
 
     <h3>สำหรับ macOS</h3>
     <ol>
-        <li>ไปที่เว็บไซต์ <a href="https://www.python.org/downloads/">python.org</a></li>
+        <li>ไปที่เว็บไซต์ <a id="link_python" href="https://www.python.org/downloads/">python.org</a></li>
         <li>ดาวน์โหลด Python เวอร์ชันล่าสุด</li>
         <li>เปิดไฟล์ติดตั้งและทำตามขั้นตอน</li>
     </ol>
@@ -59,7 +60,7 @@
     <p>
         เปิด Terminal หรือ Command Prompt แล้วพิมพ์:
         <pre><code>python --version</code></pre>
-        หรือ
+        หรือ 
         <pre><code>python3 --version</code></pre>
     </p>
 

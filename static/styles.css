@@ -1,130 +1,335 @@
-/* Reset CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* styles.css */
 
+/* General body styling */
+/* การกำหนดสไตล์ทั่วไปให้กับ body */
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  color: #1e293b;
-  background-color: #f8fafc;
-  padding-top: 80px; /* ให้เนื้อหาไม่ทับกับ fixed topbar */
-}
-
-/* Container */
-body {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+  font-family: Arial, sans-serif; /* กำหนดฟอนต์เป็น Arial หรือ sans-serif ถ้า Arial ไม่มี */
+  line-height: 1.6; /* กำหนดระยะห่างระหว่างบรรทัดเป็น 1.6 เท่าของขนาดฟอนต์ */
+  margin: 0; /* ลบระยะขอบรอบนอกทั้งหมดของ body */
+  padding: 40px; /* กำหนดระยะขอบภายใน 40px รอบทุกด้าน */
+  margin-top: 3rem;
+  background-color: #f5f5f5; /* ตั้งสีพื้นหลังเป็นสีเทาอ่อน */
+  color: #333; /* ตั้งสีตัวอักษรเป็นสีเทาเข้ม */
 }
 
 /* Headings */
+/* การกำหนดสไตล์ให้กับหัวข้อ */
 h1 {
-  color: #1e293b;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
+  color: #2c3e50; /* ตั้งสีตัวอักษรของ h1 เป็นสีน้ำเงินเข้ม */
+  text-align: center; /* จัดตำแหน่งข้อความให้อยู่กึ่งกลาง */
+  margin-bottom: 30px; /* กำหนดระยะห่างด้านล่าง 30px */
 }
 
 h2 {
-  color: #334155;
-  font-size: 2rem;
-  margin: 2.5rem 0 1.5rem 0;
-  border-bottom: 2px solid #60a5fa;
-  padding-bottom: 0.5rem;
+  color: #34495e; /* ตั้งสีตัวอักษรของ h2 เป็นสีน้ำเงินอมเทา */
+  border-bottom: 2px solid #3498db; /* เพิ่มเส้นขอบด้านล่างหนา 2px สีน้ำเงิน */
+  padding-bottom: 5px; /* กำหนดระยะห่างภายในด้านล่าง 5px */
+  margin-top: 40px; /* กำหนดระยะห่างด้านบน 40px */
 }
 
 h3 {
-  color: #475569;
-  font-size: 1.5rem;
-  margin: 2rem 0 1rem 0;
+  color: #16a085; /* ตั้งสีตัวอักษรของ h3 เป็นสีเขียวอมน้ำเงิน */
+  margin-top: 30px; /* กำหนดระยะห่างด้านบน 30px */
+}
+
+h4 {
+  color: #7f8c8d; /* ตั้งสีตัวอักษรของ h4 เป็นสีเทาอ่อน */
+  margin-top: 20px; /* กำหนดระยะห่างด้านบน 20px */
 }
 
 /* Paragraphs */
+/* การกำหนดสไตล์ให้กับย่อหน้า */
 p {
-  margin-bottom: 1.5rem;
-  color: #475569;
-}
-
-/* Lists */
-ul, ol {
-  margin: 1rem 0 1.5rem 2rem;
-  color: #475569;
-}
-
-li {
-  margin-bottom: 0.5rem;
+  font-size: 16px; /* กำหนดขนาดฟอนต์เป็น 16px */
+  margin: 10px 0; /* กำหนดระยะห่างด้านบนและล่าง 10px, ด้านซ้ายและขวา 0px */
 }
 
 /* Code blocks */
+/* การกำหนดสไตล์ให้กับบล็อกโค้ด */
 pre {
-  background-color: #1e293b;
-  color: #e2e8f0;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  overflow-x: auto;
-  margin: 1rem 0;
+  background-color: #2d2d2d; /* ตั้งสีพื้นหลังเป็นสีเทาเข้มเกือบดำ */
+  color: #f8f8f2; /* ตั้งสีตัวอักษรเป็นสีขาวอมเทา */
+  padding: 15px; /* กำหนดระยะขอบภายใน 15px รอบทุกด้าน */
+  border-radius: 5px; /* ทำให้มุมโค้งมน 5px */
+  overflow-x: auto; /* เพิ่มแถบเลื่อนแนวนอนถ้าข้อความยาวเกิน */
+  font-family: 'Courier New', Courier, monospace; /* กำหนดฟอนต์เป็นแบบ monospace */
+  font-size: 14px; /* กำหนดขนาดฟอนต์เป็น 14px */
+  margin: 10px 0; /* กำหนดระยะห่างด้านบนและล่าง 10px */
 }
 
 code {
-  font-family: 'Consolas', monospace;
+  font-family: 'Courier New', Courier, monospace; /* กำหนดฟอนต์เป็นแบบ monospace */
+  padding: 2px 5px; /* กำหนดระยะขอบภายใน 2px บน-ล่าง, 5px ซ้าย-ขวา */
+  border-radius: 3px; /* ทำให้มุมโค้งมน 3px */
+}
+
+/* Lists */
+/* การกำหนดสไตล์ให้กับรายการ */
+ul {
+  list-style-type: disc; /* ตั้งรูปแบบสัญลักษณ์รายการเป็นวงกลม */
+  margin-left: 20px; /* กำหนดระยะห่างด้านซ้าย 20px */
+  margin-bottom: 20px; /* กำหนดระยะห่างด้านล่าง 20px */
+}
+
+li {
+  margin: 5px 0; /* กำหนดระยะห่างด้านบนและล่างของแต่ละรายการ 5px */
 }
 
 /* Links */
+/* การกำหนดสไตล์ให้กับลิงก์ */
 a {
-  color: #2563eb;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  display: inline-block; /* ทำให้ลิงก์แสดงเป็นบล็อกในบรรทัด */
+  margin-top: 20px; /* กำหนดระยะห่างด้านบน 20px */
+  padding: 10px 15px; /* กำหนดระยะขอบภายใน 10px บน-ล่าง, 15px ซ้าย-ขวา */
+  background-color: #3498db; /* ตั้งสีพื้นหลังเป็นสีน้ำเงิน */
+  color: white; /* ตั้งสีตัวอักษรเป็นสีขาว */
+  text-decoration: none; /* ลบเส้นใต้ลิงก์ */
+  border-radius: 5px; /* ทำให้มุมโค้งมน 5px */
+  transition: background-color 0.3s ease; /* เพิ่มเอฟเฟกต์เปลี่ยนสีพื้นหลังใน 0.3 วินาที */
 }
 
 a:hover {
-  color: #1d4ed8;
-  text-decoration: underline;
+  background-color: #2980b9; /* เปลี่ยนสีพื้นหลังเป็นน้ำเงินเข้มขึ้นเมื่อเลื่อนเมาส์ทับ */
 }
 
-/* Special link for "start learning" */
-a[href="/dashboard"] {
-  display: inline-block;
-  background-color: #2563eb;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  margin: 2rem 0;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-a[href="/dashboard"]:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-2px);
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Strong tags */
-strong {
-  color: #1e293b;
-  font-weight: 600;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Responsive design */
+/* การกำหนดสไตล์สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 600px) {
   body {
-      padding: 1rem;
+      padding: 10px; /* ลดระยะขอบภายในเหลือ 10px สำหรับหน้าจอเล็ก */
   }
 
   h1 {
-      font-size: 2rem;
+      font-size: 24px; /* ลดขนาดฟอนต์ของ h1 เป็น 24px */
   }
 
   h2 {
-      font-size: 1.75rem;
+      font-size: 20px; /* ลดขนาดฟอนต์ของ h2 เป็น 20px */
   }
 
-  h3 {
-      font-size: 1.25rem;
+  pre {
+      font-size: 12px; /* ลดขนาดฟอนต์ของโค้ดใน pre เป็น 12px */
+  }
+}
+
+#link_python {
+  color: blue; /* ตั้งสีตัวอักษรของ #link_python เป็นสีน้ำเงิน */
+  background-color: #f5f5f5; /* ตั้งสีพื้นหลังเป็นสีเทาอ่อน (เหมือน body) */
+}
+
+/* Style for the topbar container */
+/* การกำหนดสไตล์ให้กับ topbar */
+#topbar {
+  background-color: #2c3e50; /* ตั้งสีพื้นหลังเป็นสีน้ำเงินเข้ม */
+  padding-right: 50px;
+  position: fixed; /* ทำให้ topbar คงที่ด้านบนสุดของหน้าเว็บ */
+  top: 0; /* ตั้งตำแหน่งด้านบนสุด */
+  left: 0; /* ตั้งตำแหน่งด้านซ้ายสุด */
+  width: 100%; /* ทำให้กว้างเต็มหน้าจอ */
+  z-index: 1000; /* กำหนดลำดับชั้นให้อยู่เหนือเนื้อหาอื่น */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เพิ่มเงาด้านล่างเพื่อให้ดูมีมิติ */
+}
+
+nav {
+  display: flex; /* ใช้ flexbox เพื่อจัดเรียงเนื้อหา */
+  justify-content: space-between; /* จัดให้โลโก้และเมนูอยู่คนละด้าน */
+  align-items: center; /* จัดแนวตั้งให้อยู่กึ่งกลาง */
+  max-width: 1100px; /* จำกัดความกว้างสูงสุดที่ 1200px */
+  margin: 0 auto; /* จัดกึ่งกลางในแนวนอน */
+}
+
+/* Logo styling */
+/* การกำหนดสไตล์ให้กับโลโก้ */
+.logo a {
+  color: #ecf0f1; /* ตั้งสีตัวอักษรเป็นสีขาวอมเทา */
+  font-size: 24px; /* กำหนดขนาดฟอนต์เป็น 24px */
+  font-weight: bold; /* ทำให้ตัวอักษรหนา */
+  text-decoration: none; /* ลบเส้นใต้ลิงก์ */
+  transition: color 0.3s ease; /* เพิ่มเอฟเฟกต์เปลี่ยนสีตัวอักษรใน 0.3 วินาที */
+  background-color: #2c3e50;
+}
+
+.logo a:hover {
+  color: #3498db; /* เปลี่ยนสีเป็นน้ำเงินเมื่อเลื่อนเมาส์ทับ */
+}
+
+/* Menu styling */
+/* การกำหนดสไตล์ให้กับเมนู */
+.menu {
+  display: flex; /* ใช้ flexbox เพื่อจัดเรียงเมนูแนวนอน */
+  gap: 20px; /* กำหนดระยะห่างระหว่างเมนูแต่ละตัว 20px */
+}
+
+.menu a {
+  color: #ecf0f1; /* ตั้งสีตัวอักษรเป็นสีขาวอมเทา */
+  text-decoration: none; /* ลบเส้นใต้ลิงก์ */
+  font-size: 16px; /* กำหนดขนาดฟอนต์เป็น 16px */
+  padding: 8px 12px; /* กำหนดระยะขอบภายใน 8px บน-ล่าง, 12px ซ้าย-ขวา */
+  border-radius: 3px; /* ทำให้มุมโค้งมน 3px */
+  transition: background-color 0.3s ease, color 0.3s ease; /* เพิ่มเอฟเฟกต์เปลี่ยนสีใน 0.3 วินาที */
+}
+
+.menu a:hover {
+  background-color: #34495e; /* เปลี่ยนสีพื้นหลังเป็นน้ำเงินเข้มเมื่อเลื่อนเมาส์ทับ */
+  color: #3498db; /* เปลี่ยนสีตัวอักษรเป็นน้ำเงิน */
+}
+
+/* Roadmap styling */
+/* การกำหนดสไตล์ให้กับส่วน roadmap */
+#roadmap {
+  position: relative; /* ตั้งตำแหน่งสัมพัทธ์เพื่อให้สามารถวางเส้นเชื่อมได้ */
+  padding-left: 40px; /* เพิ่มระยะห่างด้านซ้ายเพื่อให้มีที่วางเส้น */
+  margin: 20px 0; /* เพิ่มระยะห่างด้านบนและล่าง */
+}
+
+/* สไตล์สำหรับลิงก์ใน roadmap */
+#roadmap a {
+  display: block; /* ทำให้ลิงก์แต่ละตัวเป็นบล็อกเพื่อจัดแนวตั้ง */
+  position: relative; /* ตั้งตำแหน่งสัมพัทธ์เพื่อวางจุดและเส้น */
+  padding: 15px 20px; /* เพิ่มระยะขอบภายในเพื่อความสวยงาม */
+  margin: 10px 0; /* เพิ่มระยะห่างระหว่างลิงก์ */
+  background-color: #ecf0f1; /* สีพื้นหลังเทาอ่อน */
+  color: #2c3e50; /* สีตัวอักษรน้ำเงินเข้ม */
+  text-decoration: none; /* ลบเส้นใต้ */
+  border-radius: 8px; /* มุมโค้งมน */
+  font-weight: bold; /* ตัวอักษรหนา */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* เอฟเฟกต์เปลี่ยนสีและขยับ */
+}
+
+/* สร้างจุด (milestone) ด้านหน้าแต่ละลิงก์ */
+#roadmap a::before {
+  content: ''; /* สร้าง pseudo-element ว่าง */
+  position: absolute; /* ตั้งตำแหน่งสัมพัทธ์กับลิงก์ */
+  left: -30px; /* วางจุดทางซ้ายของลิงก์ */
+  top: 50%; /* จัดกึ่งกลางแนวตั้ง */
+  transform: translateY(-50%); /* ปรับตำแหน่งให้ตรงกลาง */
+  width: 12px; /* ความกว้างของจุด */
+  height: 12px; /* ความสูงของจุด */
+  background-color: #3498db; /* สีน้ำเงิน */
+  border-radius: 50%; /* ทำให้เป็นวงกลม */
+  border: 2px solid #fff; /* ขอบสีขาว */
+  z-index: 1; /* ให้อยู่เหนือเส้นเชื่อม */
+}
+
+/* สร้างเส้นเชื่อมระหว่างจุด */
+#roadmap a::after {
+  content: ''; /* สร้าง pseudo-element ว่าง */
+  position: absolute; /* ตั้งตำแหน่งสัมพัทธ์กับลิงก์ */
+  left: -24px; /* วางเส้นให้ตรงกับจุด */
+  top: -50%; /* เริ่มจากด้านบนของลิงก์ */
+  width: 2px; /* ความหนาของเส้น */
+  height: 100%; /* ความยาวครอบคลุมระยะห่างไปยังลิงก์ถัดไป */
+  background-color: #3498db; /* สีน้ำเงิน */
+}
+
+/* ลบเส้นเชื่อมของลิงก์แรกและสุดท้ายให้ดูเรียบร้อย */
+#roadmap a:first-child::after {
+  top: 50%; /* เริ่มเส้นจากกึ่งกลางจุด */
+  height: 50%; /* ลดความยาวครึ่งหนึ่ง */
+}
+
+#roadmap a:last-child::after {
+  height: 50%; /* ลดความยาวครึ่งหนึ่ง */
+}
+
+/* เอฟเฟกต์เมื่อเลื่อนเมาส์ทับ */
+#roadmap a:hover {
+  background-color: #3498db; /* เปลี่ยนสีพื้นหลังเป็นน้ำเงิน */
+  color: #fff; /* เปลี่ยนสีตัวอักษรเป็นขาว */
+  transform: translateX(10px); /* ขยับไปทางขวาเล็กน้อย */
+}
+
+/* ปรับแต่งจุดเมื่อ hover */
+#roadmap a:hover::before {
+  background-color: #fff; /* เปลี่ยนสีจุดเป็นขาว */
+  border-color: #3498db; /* ขอบเป็นสีน้ำเงิน */
+}
+
+/* Responsive design สำหรับ roadmap */
+@media (max-width: 600px) {
+  #roadmap {
+    padding-left: 30px; /* ลดระยะห่างด้านซ้ายในหน้าจอเล็ก */
+  }
+
+  #roadmap a {
+    padding: 10px 15px; /* ลดระยะขอบภายใน */
+    font-size: 14px; /* ลดขนาดฟอนต์ */
+  }
+
+  #roadmap a::before {
+    width: 10px; /* ลดขนาดจุด */
+    height: 10px; /* ลดขนาดจุด */
+    left: -25px; /* ปรับตำแหน่งจุด */
+  }
+
+  #roadmap a::after {
+    left: -20px; /* ปรับตำแหน่งเส้น */
+  }
+}
+
+/* Start point styling */
+#start-point {
+  text-align: center; /* จัดข้อความกึ่งกลาง */
+  font-size: 24px; /* ขนาดฟอนต์ใหญ่ขึ้น */
+  font-weight: bold; /* ตัวอักษรหนา */
+  color: #fff; /* สีตัวอักษรขาว */
+  background-color: #3498db; /* สีพื้นหลังเขียว (สื่อถึงจุดเริ่มต้น) */
+  padding: 15px 30px; /* ระยะขอบภายใน */
+  border-radius: 50px; /* มุมโค้งมนเป็นวงรี */
+  margin: 20px auto; /* ระยะห่างรอบนอกและจัดกึ่งกลาง */
+  width: 120px; /* ความกว้างคงที่ */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+  position: relative; /* เพื่อเชื่อมกับ roadmap */
+}
+
+/* เพิ่มเส้นเชื่อมจาก start ไป roadmap */
+#start-point::after {
+  content: ''; /* สร้าง pseudo-element */
+  position: absolute; /* ตั้งตำแหน่งสัมพัทธ์ */
+  left: 50%; /* เริ่มจากกึ่งกลาง */
+  bottom: -20px; /* วางเส้นด้านล่าง */
+  width: 2px; /* ความหนาของเส้น */
+  height: 20px; /* ความยาวเส้น */
+  background-color: #3498db; /* สีน้ำเงินให้เข้ากับ roadmap */
+  transform: translateX(-50%); /* จัดกึ่งกลางเส้น */
+}
+
+/* End point styling */
+#end-point {
+  text-align: center; /* จัดข้อความกึ่งกลาง */
+  font-size: 24px; /* ขนาดฟอนต์ใหญ่ขึ้น */
+  font-weight: bold; /* ตัวอักษรหนา */
+  color: #fff; /* สีตัวอักษรขาว */
+  background-color: #3498db; /* สีพื้นหลังแดง (สื่อถึงจุดสิ้นสุด) */
+  padding: 15px 30px; /* ระยะขอบภายใน */
+  border-radius: 50px; /* มุมโค้งมนเป็นวงรี */
+  margin: 20px auto; /* ระยะห่างรอบนอกและจัดกึ่งกลาง */
+  width: 120px; /* ความกว้างคงที่ */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+  position: relative; /* เพื่อเชื่อมกับ roadmap */
+}
+
+/* เพิ่มเส้นเชื่อมจาก roadmap ไป end */
+#end-point::before {
+  content: ''; /* สร้าง pseudo-element */
+  position: absolute; /* ตั้งตำแหน่งสัมพัทธ์ */
+  left: 50%; /* เริ่มจากกึ่งกลาง */
+  top: -20px; /* วางเส้นด้านบน */
+  width: 2px; /* ความหนาของเส้น */
+  height: 20px; /* ความยาวเส้น */
+  background-color: #3498db; /* สีน้ำเงินให้เข้ากับ roadmap */
+  transform: translateX(-50%); /* จัดกึ่งกลางเส้น */
+}
+
+/* Responsive design สำหรับ start และ end */
+@media (max-width: 600px) {
+  #start-point, #end-point {
+    font-size: 20px; /* ลดขนาดฟอนต์ */
+    padding: 10px 20px; /* ลดระยะขอบภายใน */
+    width: 100px; /* ลดความกว้าง */
+  }
+
+  #start-point::after, #end-point::before {
+    height: 15px; /* ลดความยาวเส้น */
   }
 }
